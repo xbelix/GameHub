@@ -15,7 +15,7 @@ const GameGrid = () => {
           lg: 3,
         }}
         spacing={10}
-        p={10}
+        p='10px'
       >
         {games.map((game) => (
           <GameCard game={game} />
