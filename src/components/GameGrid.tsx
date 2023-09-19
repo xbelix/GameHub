@@ -5,7 +5,7 @@ import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import { GameQuery } from "../App";
 
-interface Props{
+interface Props {
   gameQuery: GameQuery;
 }
 
@@ -21,9 +21,9 @@ const GameGrid = ({ gameQuery }: Props) => {
           sm: 1,
           md: 2,
           lg: 3,
-          "2xl": 5,
+          xl: 4,
         }}
-        spacing={5}
+        spacing={6}
         p="10px"
       >
         {isLoading &&
