@@ -1,12 +1,7 @@
 import useData from "./useData";
-
-interface platform {
-  id: number;
-  name: string;
-  slug: string;
-}
+import { Platform } from "./useGames";
 
 const usePlatform = () => {
-  return useData<platform>("platforms/lists/parents");
+  return useData<Platform>("platforms/lists/parents");
 };
 export default usePlatform;
