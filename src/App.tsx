@@ -24,11 +24,14 @@ const App = () => {
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" px={5}>
-          <GenreList selectGenre={(g)=> setSelectedGenre(g)} />
+          <GenreList
+            selectedGenre={selectedGenre}
+            selectGenre={(g) => setSelectedGenre(g)}
+          />
         </GridItem>
       </Show>
       <GridItem area="main">
-        <GameGrid recievedGenre={selectedGenre}/>
+        <GameGrid recievedGenre={selectedGenre} />
       </GridItem>
     </Grid>
   );

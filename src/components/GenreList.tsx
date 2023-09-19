@@ -3,14 +3,16 @@ import useGenre, { Genre } from "../hooks/useGenre";
 import cropImage from "../services/image-url";
 import GenreListSkeleton from "./GenreListSkeleton";
 
-interface Props{
-  selectGenre: (genre: Genre)=> void;
+interface Props {
+  selectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ selectGenre }: Props) => {
-  const { data, isLoading } = useGenre();
+const GenreList = ({ selectedGenre, selectGenre }: Props) => {
+  const { data, isLoading, error } = useGenre();
 
-  if(isLoading) return <GenreListSkeleton />
+  if (isLoading) return <GenreListSkeleton />;
+  if (error) return null;
   return (
     <List>
       {data.map((d) => (
@@ -21,7 +23,14 @@ const GenreList = ({ selectGenre }: Props) => {
               borderRadius={8}
               boxSize="32px"
             />
-            <Button onClick={()=> selectGenre(d)} variant='link' fontSize="lg">{d.name}</Button>
+            <Button
+              fontWeight={d.id === selectedGenre?.id ? "bold" : "normal"}
+              onClick={() => selectGenre(d)}
+              variant="link"
+              fontSize="lg"
+            >
+              {d.name}
+            </Button>
           </HStack>
         </ListItem>
       ))}
