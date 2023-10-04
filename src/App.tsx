@@ -27,14 +27,14 @@ const App = () => {
       }}
       templateColumns={{
         base: "1fr",
-        lg: "200px 1fr",
+        lg: "250px 1fr",
       }}
     >
       <GridItem area="nav">
         <NavBar onSearch={(search) => setGameQuery({ ...gameQuery, search })} />
       </GridItem>
       <Show above="lg">
-        <GridItem area="aside" px={5}>
+        <GridItem area="aside" px={5} pt={8}>
           <GenreList
             selectedGenre={gameQuery.genre}
             selectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
