@@ -5,16 +5,18 @@ import { Platform } from "../hooks/usePlatform";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
-  showPlatform: Platform | null;
+  showPlatform?: number;
 }
 
 const PlatformSelector = ({ onSelectPlatform, showPlatform }: Props) => {
   const { data, error } = usePlatform();
+  const platform = data.results.find((p) => p.id === showPlatform);
+
   if (error) return null;
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {showPlatform?.name || "Platforms"}
+        {platform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
         {data?.results.map((d) => (
