@@ -18,10 +18,15 @@ class APIClient<T> {
   constructor(endpoint: string) {
     this.endpoint = endpoint;
   }
-
   get = (Config?: AxiosRequestConfig) => {
     return axiosInstance
       .get<FetchData<T>>(this.endpoint, Config)
+      .then((res) => res.data);
+  };
+
+  getOne = (id: number | string) => {
+    return axiosInstance
+      .get<T>(this.endpoint + id)
       .then((res) => res.data);
   };
 }
