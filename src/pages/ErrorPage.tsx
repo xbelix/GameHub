@@ -7,7 +7,7 @@ const ErrorPage = () => {
   return (
     <>
       <NavBar />
-      <Box>
+      <Box p={5}>
           <Heading>Oops...</Heading>
           <Text>
             {isRouteErrorResponse(error)
